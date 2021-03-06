@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+/DS_Store
+
+/storybook-static
+
 # testing
 /coverage
 
