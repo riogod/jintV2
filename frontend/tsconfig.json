@@ -4,7 +4,11 @@
     "lib": [
       "dom",
       "dom.iterable",
+      "es6",
       "esnext"
+    ],
+    "types": [
+      "jest"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -12,13 +16,16 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src"
