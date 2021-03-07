@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import './bootstrap/config/i18n';
+import { StoresProvider, stores } from "./store";
+import createRouter from "./bootstrap/initRouter";
+import {RouterProvider} from "react-router5";
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -11,16 +14,17 @@ if (process.env.NODE_ENV === 'development') {
     worker.start()
 }
 
-const Loader = () => (
-    <div className="App">
-        <div>loading...</div>
-    </div>
-);
+const router = createRouter();
 
-ReactDOM.render(
-    <Suspense fallback={<Loader />}>
-        <App />
-    </Suspense>,
+router.start(() => {ReactDOM.render(
+    <StoresProvider value={stores}>
+        <RouterProvider router={router}>
+            <Suspense fallback={<div>Загрузка...</div>}>
+                <App />
+            </Suspense>
+        </RouterProvider>
+    </StoresProvider>,
     document.getElementById('root')
-);
+)}
+)
 
