@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import {Observer} from "mobx-react-lite";
 import ArticleListPage from "./components/comp";
 import {useStore} from "./hooks/useStores";
+import {Link, useRouteNode} from "react-router5";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
 
   const { t } = useTranslation();
 
+  const { route } = useRouteNode('')
 
   return (
       <Observer>
@@ -42,6 +44,18 @@ function App() {
           return (
               <div className="App">
                 <header className="App-header">
+                  <nav>
+                    <Link routeName="main"
+                    >
+                      home
+                    </Link>
+                    <Link routeName="test">
+                      page
+                    </Link>
+                  </nav>
+
+                  {route.name === 'main' && <>main </>}
+                  {route.name === 'test' && <>test </>}
 
                   {store.isLoading ? 'Loading' : 'not Loading'}
 
