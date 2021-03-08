@@ -1,3 +1,3 @@
 export interface IAppStore {
-    features: object;
+  features: object;
 }

@@ -1,5 +1,1 @@
-
-
-export default class BaseStore {
-
-}
+export default class BaseStore {}

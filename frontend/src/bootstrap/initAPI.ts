@@ -1,5 +1,5 @@
-import {stores} from "../store";
+import { stores } from '../store';
 
-export const initAPI = async () => {
-    await stores.app.getFeatures();
-}
+export const initAPI = async (): Promise<void> => {
+  await stores.app.getFeatures();
+};

@@ -1,8 +1,8 @@
 export interface IAppStore {
-    loading: boolean;
+  loading: boolean;
 
-    isLoading: boolean;
+  isLoading: boolean;
 
-    setLoading: (value: boolean) => void;
-    getFeatures: () => void;
+  setLoading: (value: boolean) => void;
+  getFeatures: () => void;
 }
