@@ -4,4 +4,5 @@ export interface IAppStore {
     isLoading: boolean;
 
     setLoading: (value: boolean) => void;
+    getFeatures: () => void;
 }

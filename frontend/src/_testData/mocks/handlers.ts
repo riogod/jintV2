@@ -3,7 +3,7 @@ import app from './data/app.json';
 
 
 const handlers = [
-    rest.get(`/app`, (req, res, ctx) =>
+    rest.get(`/data/app`, (req, res, ctx) =>
         res(ctx.json(app), ctx.set('Content-Type', 'application/json'), ctx.delay(500), ctx.status(200))
     ),
 

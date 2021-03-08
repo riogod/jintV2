@@ -6,6 +6,7 @@ import './bootstrap/config/i18n';
 import { StoresProvider, stores } from "./store";
 import createRouter from "./bootstrap/initRouter";
 import {RouterProvider} from "react-router5";
+import {initBootstrap} from "./bootstrap";
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -15,6 +16,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const router = createRouter();
+
+initBootstrap().then( () => {
+    stores.app.setLoading(false);
+});
 
 router.start(() => {ReactDOM.render(
     <StoresProvider value={stores}>

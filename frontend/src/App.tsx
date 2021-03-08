@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React, {ReactElement, useEffect} from 'react';
 import './App.css';
 import { useTranslation } from 'react-i18next';
 import {Observer} from "mobx-react-lite";
@@ -17,20 +17,16 @@ function App() {
   }
 
 
-
-
+  useEffect(() => {
+    if(!store.isLoading) {
+      console.log('STOR',store);
+    }
+  },[store])
 
 
 
   const handleSubmit = () => {
-    fetch('/app', {
-      method: 'GET'
-    })
-      .then((res) => res.json())
-      // Update the state with the received response
-      .then((res) => {
-        console.log(res)
-      })
+    console.log(store.features);
   }
 
   const { t } = useTranslation();
@@ -40,7 +36,7 @@ function App() {
   return (
       <Observer>
         {(): ReactElement  => {
-
+          console.log(store.features)
           return (
               <div className="App">
                 <header className="App-header">
