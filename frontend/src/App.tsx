@@ -16,29 +16,32 @@ const App: FC = () => {
   return (
     <Observer>
       {(): ReactElement => {
-        return (
-          <div className="App">
-            <header className="App-header">
-              <nav>
-                <Link routeName="main">home</Link>
-                <Link routeName="test">page</Link>
-              </nav>
-              <br />
-              {route.name === 'main' && <>main </>}
-              {route.name === 'test' && <>test </>}
-              <br />
-              {store.isLoading ? 'Loading' : 'not Loading'}
+        if (store.features.main) {
+          return (
+            <div className="App">
+              <header className="App-header">
+                <nav>
+                  <Link routeName="main">home</Link>
+                  <Link routeName="test">page</Link>
+                </nav>
+                <br />
+                {route.name === 'main' && <>main </>}
+                {route.name === 'test' && <>test </>}
+                <br />
+                {store.loading ? 'Loading' : 'not Loading'}
 
-              <br />
-              {t('title')}
-              <br />
-              <ArticleListPage />
-            </header>
-          </div>
-        );
+                <br />
+                {t('title')}
+                <br />
+                <ArticleListPage />
+              </header>
+            </div>
+          );
+        }
+
+        return <></>;
       }}
     </Observer>
   );
 };
-
 export default App;

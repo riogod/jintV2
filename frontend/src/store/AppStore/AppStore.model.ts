@@ -1,3 +1,7 @@
-export interface IAppStore {
-  features: object;
+export interface IAppFeatures {
+  main: boolean;
+}
+
+export interface IAppSettingsStore {
+  features: IAppFeatures;
 }

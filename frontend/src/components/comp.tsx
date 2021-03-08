@@ -7,7 +7,7 @@ const ArticleListPage: FC = () => {
 
   return (
     <Observer>
-      {(): ReactElement => <>{store.isLoading ? 'Loading' : 'not Loading'}</>}
+      {(): ReactElement => <>{store.loading ? 'Loading' : 'not Loading'}</>}
     </Observer>
   );
 };
