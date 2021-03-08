@@ -1,8 +1,8 @@
 import React from 'react';
 import { stores, storesContext } from '../store';
+import { IRootStore } from '../store/interfaces';
 
-//TODO fix any
-export const useStores = (): any => React.useContext(storesContext);
+export const useStores = (): IRootStore => React.useContext(storesContext);
 
 export const useStore = <T extends keyof typeof stores>(
   store: T

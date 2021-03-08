@@ -1,6 +1,6 @@
 import { api } from '../api';
+import { IAppSettings } from './interfaces';
 
-//TODO fix any
-export const getAppSettings = (): any => {
+export const getAppSettings = (): Promise<IAppSettings> => {
   return api.get('/app').then((res) => res.data.body);
 };
